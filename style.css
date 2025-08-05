@@ -97,9 +97,10 @@ body {
   font-size: 16px;
   color: #fff;
   font-weight: 500;
+  padding-left: 5px;
 }
 .input-box input:focus,
-.input-box input:valid {
+.input-box input:not(:placeholder-shown)  {
   border-bottom: 2px solid #0ef;
 }
 
@@ -112,12 +113,14 @@ body {
   color: #fff;
   pointer-events: none;
   transition: 0.5s;
+  padding-left: 5px;
 }
 
 .input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -5px;
+.input-box input:not(:placeholder-shown) ~ label {
+  top: -10px;
   color: #0ef;
+  font-size: 14px;
 }
 
 .input-box i {
@@ -128,9 +131,10 @@ body {
   font-size: 18px;
   color: #fff;
   transition: 0.5s;
+  padding-right: 5px;
 }
 .input-box input:focus ~ i,
-.input-box input:valid ~ i {
+.input-box input:not(:placeholder-shown) ~ i {
   color: #0ef;
 }
 .btn {
@@ -278,4 +282,10 @@ body {
 .wrapper.active .bg_animate_2 {
   transform: rotate(-11deg) skewY(-41deg);
   transition-delay: 1.2s;
+}
+
+#signupPassword,
+#signupEmail,
+#signupUsername {
+  border-radius: 5px;
 }
