@@ -4,9 +4,24 @@ const loginLink = document.querySelector(".login-link");
 
 registerLink.onclick = () => {
   wrapper.classList.add("active");
+
+  setTimeout(() => {
+    document.getElementById("loginUsername").value = "";
+    document.getElementById("loginPassword").value = "";
+    document.getElementById("loginUsername").style.border = "";
+    document.getElementById("loginPassword").style.border = "";
+  }, 500);
 };
 loginLink.onclick = () => {
   wrapper.classList.remove("active");
+  setTimeout(() => {
+    document.getElementById("signupUsername").value = "";
+    document.getElementById("signupEmail").value = "";
+    document.getElementById("signupPassword").value = "";
+    document.getElementById("signupUsername").style.border = "";
+    document.getElementById("signupEmail").style.border = "";
+    document.getElementById("signupPassword").style.border = "";
+  }, 500);
 };
 
 function isValidEmail(email) {
@@ -55,23 +70,7 @@ function login(event) {
   showToast("Login Successful!", "success");
   usernameInput.value = "";
   passwordInput.value = "";
-
 }
-// function loginLinkClick() {
-//   const signupUsername = document.getElementById("signupUsername");
-//   const signupEmail = document.getElementById("signupEmail");
-//   const signupPassword = document.getElementById("signupPassword");
-
-//   if (signupUsername) signupUsername.value = "";
-//   if (signupEmail) signupEmail.value = "";
-//   if (signupPassword) signupPassword.value = "";
-
-//   if (signupUsername) signupUsername.style.border = "";
-//   if (signupEmail) signupEmail.style.border = "";
-//   if (signupPassword) signupPassword.style.border = "";
-// }
-
-
 
 function register(event) {
   event.preventDefault();
@@ -125,19 +124,6 @@ function register(event) {
   emailInput.value = "";
   passwordInput.value = "";
 }
-
-// function registerLinkClick() {
-
-//   document.getElementById("loginUsername").value = "";
-//   document.getElementById("loginPassword").value = "";
-
-//   document.getElementById("loginUsername").style.border = "";
-//   document.getElementById("loginPassword").style.border = "";
-
-// }
-
-
-
 
 function showToast(message, type = "success") {
   Toastify({
